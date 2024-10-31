@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+*{
+
+margin: 0px;
+padding: 0px;
+
+}
+
+div{
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+margin-top: 20%;
+text-align: center;
+
+}
+ 
+audio.Musica{
+
+    position: absolute;
+    top: 92.5%;
+    left: 0.3%; 
+    width: 150px;
+
+}
+
+
+
+/*  JAVASCRIPT  */
+button.botao{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+ padding: 10px;
+    
+font-family: Arial, Helvetica, sans-serif;
+border-radius: 10px;
+background: lightgray;
+color: black;
+font-size: 16px; 
+}
+
+.botao:hover{
+cursor: pointer;
+}
+.botao:active{
+background-color: rgba(211, 211, 211, 0.358);    
+}
+.botao:disabled{
+
+display: none;
+
+}
+
+img{
+
+width: 100px;
+height: 100px;
+
+}
+
+.botao.Estilo_btn{
+background: rgba(211, 211, 211, 0.300);
+border: none;
+color: transparent;
+cursor:default;
+
+}
+
+.botao.Estilo_btn:hover{
+border: 1px solid black;
+}
+
+#Itexto{
+display: block;
+outline: none;
+margin: 0 auto;
+text-align: center;
+
+}
+
+  
+
+.btn_Form{
+    text-align: center; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    color: black;
+    font-size: 16px;
+    background-color: rgba(108, 108, 108, 0.134);
+
+}
+
+.btn_Form:hover{   
+
+background-color: black; 
+color: white;
+cursor: pointer; 
+} 
+
+.carinha{
+    
+font-size: 100px;
+
+}
