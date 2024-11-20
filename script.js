@@ -20,7 +20,7 @@ let contar = 0
 let clicks = 0
 
 
-/* // INICIO NO JOGO
+ // INICIO NO JOGO
 
 
     alert('antes de começar o "jogo" gostaria q coloca-se um nome que você quiser')
@@ -72,21 +72,13 @@ Nome colocado:  *${nome_valor}*`)
 
     }
 
-*/
+
 
 
 // fazendo o botão funcionar 
 botao.addEventListener("click",function(){
 
  contar ++ 
-
-console.log(contar)
-
-
-  
-
-// espaço para treinar :O
-
 
  //Aleatoriedades
 
