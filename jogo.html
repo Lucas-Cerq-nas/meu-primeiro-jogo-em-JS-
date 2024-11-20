@@ -1,0 +1,348 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio</title>
+    <style>
+    @charset "UTF-8";
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1, h2{
+        text-align: center;
+    }
+    img#gato{
+        position: absolute;
+        top: 91%;
+        left: 7%;
+        transform: translate(-50%, -50%);
+    }
+    #comida{
+        position: absolute;
+        top: 0%;
+        left: 93%;
+
+    }
+    img#Vida{
+        position: absolute;
+        top: 91%;
+        left: 97%;
+        width: 40px;
+        height: 30px;
+
+    }
+
+
+    form#formulario{
+        background-color: rgba(0, 0, 0, 0.343);
+        width: 303.4px;
+        padding: 10px 8px 8px 8px;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+
+    label{
+        font: bold 1em Arial;
+
+    }
+
+    input{
+        text-align: center;
+        
+    }
+
+    #botao{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        margin: 15px 0px 5px 0px;
+        background: rgba(0, 0, 0, 0.521);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+
+    #botao:active{
+        background: transparent;
+
+    }
+
+
+
+    </style>
+
+    </head>
+    <body>
+        
+        <img id="gato" src="./img/spr_cat.gif" alt="gato :D ">
+        <img id="comida" src="img/sachê.png" alt="sachê">
+
+
+        <!-- Inputes para valor  -->
+        <form id="formulario" autocomplete="off">
+            
+            <h1 id="texto"></h1>
+            <h2 id="Sub-titulo"></h2>
+
+            <label for="itext1"> Altura: </label>
+            <input type="text" name="text" id="itext1" size="10" minlength="5" placeholder="%"> 
+            <label for="itext2">Largura:</label>
+            <input type="text" name="text" id="itext2" size="10" minlength="5" placeholder="%"> 
+
+            <input type="button" id="botao" value="Checar">
+        </form>
+
+    
+        <script>
+
+    // Jogo de Calculos
+    const Form = document.getElementById("formulario")
+    const h1 = document.getElementById('texto')
+    const h2 = document.getElementById("Sub-titulo")
+    const gato = document.getElementById('gato')
+    const sache = document.getElementById('comida')
+    
+    const input_text1 = document.getElementById("itext1")
+    const input_text2 = document.getElementById("itext2")
+    const btn = document.getElementById("botao")
+
+    let clicks = 0
+
+    //  Vidas
+    let Vidas = 3
+
+    // Desafios
+    let Quant_Acertos = 0 // 3
+
+    let Desafio = ['4 x 5 | 43 + 47 - 60', '5 x 10 | 180 / 2', '120 / 2 | 5²', '(25²) x 2 - 1232 | √(100) x 5 + 5'] // <-- colocar desafios
+
+
+    // Inicio
+    alert('Opa, tu chego')
+    alert('certo é o seguinte. \r\n Seu desafio é levar o gato pra ração dele')
+    alert('nisso você deve saber qual é o valor correto para o gato chegar na ração \r\n simples não?')
+    alert('basta saber o resultado da conta e colocar o resultado no quadrado de resposta \r e clicar em checar.')
+    alert('Aé quase esqueci de falar. \r\n você tem 3 vidas.')
+    alert('Caso perca as 3, você perde e eu ganho :)')
+    alert('certo vamos começar')
+    
+    Form.appendChild(h1,h2)
+    h1.innerText = `Vidas: ${Vidas}` 
+    h2.innerText = "100 x 0 | 68 + 25"
+    btn.addEventListener("click", () => {
+        clicks ++
+
+        let Alea_Top1 = ['18%','20%','50%','60%','70%']
+        let Alea_left1 =['0%','25%','30%','55%','90%'] 
+
+        if(input_text1.value == "" && input_text2.value == ""){
+        clicks = 0
+        alert('coloque um valor')
+    }
+
+        // interruptor de clicks
+    switch (clicks){    
+            case 1:
+                if(input_text1.value == '0' && input_text2.value == '93'){
+                    Checagem()
+                    sache.style.top = Alea_Top1[1]
+                    sache.style.left = Alea_left1[2]
+                    Quant_Acertos++ 
+
+                    h2.innerText = Desafio[0]
+
+                }else{
+                    alert('checando...')
+                    Vidas --
+                    alert(`você errou \r Vidas: ${Vidas}`)
+                    h1.innerHTML = `Vidas: ${Vidas}`
+                    clicks = 0
+                }  
+                break;
+                case 2:
+                    if(input_text1.value == '20' && input_text2.value == '30'){
+                        Checagem()
+                        sache.style.top = Alea_Top1[2]
+                        sache.style.left = Alea_left1[4]
+                        Quant_Acertos++
+
+                            h2.innerText = Desafio[1]
+
+
+                    }else{
+                    alert('checando...')
+                    Vidas --
+                    alert(`você errou \r Vidas: ${Vidas}`)
+                    h1.innerHTML = `Vidas: ${Vidas}`
+                    clicks = 1
+
+                }
+                break;
+
+                case 3:
+                    if(input_text1.value == '50' && input_text2.value == '90'){
+                        Checagem()
+                        sache.style.top = Alea_Top1[3]
+                        sache.style.left = Alea_left1[1]
+                        Quant_Acertos++
+
+                        //Proximo CAse
+                        h2.innerText = ""
+                        alert('kkkk quero ver você conseguir esse kkkk')
+                        let virar_texto = document.createElement("bdo")
+                        virar_texto.setAttribute('dir','rtl')
+
+                        virar_texto.innerText = Desafio[2]
+                        h2.appendChild(virar_texto)
+                    }else{
+                    alert('checando...')
+                    Vidas --
+                    alert(`você errou \r Vidas: ${Vidas}`)
+                    h1.innerHTML = `Vidas: ${Vidas}`
+                    clicks = 2
+                    }
+
+                break;
+
+                case 4:
+                if(input_text1.value == '60' && input_text2.value == '25'){
+                    Checagem()
+                    sache.style.top = Alea_Top1[0]
+                    sache.style.left = Alea_left1[3] 
+                    Quant_Acertos++
+                    h2.innerText = Desafio[3]
+
+                    alert('Nossa tu é bom em?')
+                    alert('certo, certo... quero ver agora :)')
+                    Form.style.width = "355px"
+                }else{
+                    alert('checando...')
+                    Vidas --
+                    alert(`você errou \r Vidas: ${Vidas}`)
+                    h1.innerHTML = `Vidas: ${Vidas}`
+                    clicks = 3
+                }
+                break;
+
+                case 5:
+                if(input_text1.value == '18' && input_text2.value == '55'){
+                    Checagem()
+                    Quant_Acertos++
+                }else{
+                    alert('checando...')
+                    Vidas --
+                    alert(`você errou \r Vidas: ${Vidas}`)
+                    h1.innerHTML = `Vidas: ${Vidas}`
+                    clicks = 4
+                }
+                break;
+
+
+    }
+
+    input_text1.value = ""
+    input_text2.value = ""
+
+    console.log(Quant_Acertos)
+
+    if(Quant_Acertos >= 5){
+        alert("...")
+        alert("quem diria... Você ganhou :)")
+        alert('olha, não da pra acreditar que você quis ficar aq \r em um site criado por um cara que esta aprendendo a programar ainda.')
+        alert('meus parabéns...')
+        alert('acho que é isso... já chegou a hora de sair...')
+        alert('foi legal... gostei de brincar com você')
+        alert('...')
+        alert('adeus :)')
+        alert('Feito por lucas cerqueira do nascimento')
+        alert('GitHub: https://github.com/Lucas-Cerq-nas')
+        document.body.remove()
+        location.href = "https://www.google.com"
+    }
+
+    if(Vidas <= 0){
+        alert('VIDAS: 0')
+        alert('é parece que eu ganhei >:)')
+        alert('como que você não conseguiu?')
+        alert('kkkkkkkkkkk')
+        alert('bom... já que você perdeu >:)')
+        alert('eu posso contar pros meus amigos que você não consegue fazer uma conta \r de matemática kkkkk')
+        alert("falou ai kkkkkk")
+        alert('aé esse "site" foi criado por Lucas cerqueira do nascimento kkkk')
+        alert('GitHub: https://github.com/Lucas-Cerq-nas')
+        document.body.remove()
+        location.href = "https://www.google.com"
+
+    }
+
+
+
+})
+
+/*    // Codigo q eu ia usar mais desisti aff 
+function Aleatoriedade_gato_sache(){
+
+            // Sistema de Aleatoriedade do sache
+    let Alea_Top1 = ['18%','20%','50%','60%','70%']
+    let Alea_left1 =['0%','25%','30%','55%','90%'] 
+
+        let Top_sache = Alea_Top1[Math.floor(Math.random() * Alea_Top1.length)]
+    let Left_sache = Alea_left1[Math.floor(Math.random() * Alea_left1.length)]
+
+            sache.style.top = Top_sache
+            sache.style.left = Left_sache
+
+            // Sistema de aleatoriedade do gato
+
+        let Alea_Top2 = ['4%','30%','40%','80%','90%']
+    let Alea_left2 = ['15%','20%','45%','60%','80%']
+
+        let Top_gato = Alea_Top2[Math.floor(Math.random() * Alea_Top2.length)]
+    let Left_gato = Alea_left2[Math.floor(Math.random() * Alea_Top2.length)]
+
+                gato.style.top = Top_gato
+            gato.style.left = Left_gato
+
+            // Não Colidir
+    if( Left_gato == Left_sache && Top_gato == Top_sache){
+            Top_sache = '90%'
+            sache.style.left = Left_sache
+            Top_gato = '25%'
+                gato.style.left = Left_gato
+
+    }   
+            // Mover o formulario
+    if(Top_gato == '4%' && Left_gato == '45%' || Top_gato == '4%' && Left_gato == '60%'){
+        Form.style.marginTop = '44%'
+    }else{
+        Form.style.marginTop = '5px'
+    }
+
+}
+*/
+
+// Sistema de Checagem de valores
+function Checagem(){
+
+    let aler1 = alert('checando...')
+    let aler2 = alert('você Acertou')
+
+    return aler1, aler2
+}
+
+        </script>
+
+    </body>
+    </html>

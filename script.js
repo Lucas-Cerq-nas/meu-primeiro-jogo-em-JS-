@@ -7,11 +7,21 @@ const Inp_Text = document.getElementById("Itexto")
 
 const music = document.querySelector("audio")
 
+let Som = document.createElement("audio")
+Som.src = "Sons/botãoSom.mp3"
+Som.currentTime = 0
+
+
+let corpo = document.body
+
+//contador de clicks
 let contar = 0
 
+let clicks = 0
 
 
-    // INICIO NO JOGO
+/* // INICIO NO JOGO
+
 
     alert('antes de começar o "jogo" gostaria q coloca-se um nome que você quiser')
 
@@ -19,27 +29,50 @@ let contar = 0
 
     let nome_valor = nome
 
-    let nome_confirm =  window.confirm(`Esse nome esta certo?
+    if(nome == ""){
+        alert("seu nome esta vazio...")
+        alert("porfavor, preencha o campo nome >:(")
+    }
+
+
+    while(nome == ""){
+        nome = window.prompt("so colocar qualquer coisa '-' ")
+    }
+
+    if(nome != ""){
+
+        nome_valor = nome
+        let nome_confirm =  window.confirm(`Esse nome esta certo?
 
 Nome colocado:  *${nome_valor}*`)
+            
+                if(nome_confirm){
+            
+                    window.alert("aperte o Botão com calma, para não acontecer bug.")
+                    window.alert("muito Obrigado, Aproveite :)")
+            
+                }else{
+            
+            let nome__ = window.prompt("coloque o nome que você quiser")
 
-    if(nome_confirm == true){
+            if(!nome__){
 
-        window.alert("aperte o Botão com calma, para não acontecer bug.")
-        window.alert("muito Obrigado, Aproveite :)")
+                alert("quer saber? seu nome agora vai ser 'irritante' >:( ")
+                
+                nome_valor = "irritante"
 
-    }else{
+            }
+            
+            nome_valor = nome__
+            
+            window.alert("aperte o Botão com calma, para não acontecer bug.")
+            window.alert("muito Obrigado, Aproveite :)")
+            
+            }
 
-let nome__ = window.prompt("coloque o o nome que você quiser")
+    }
 
-nome_valor = nome__
-
-window.alert("aperte o Botão com calma, para não acontecer bug.")
-window.alert("muito Obrigado, Aproveite :)")
-
-
-}
-
+*/
 
 
 // fazendo o botão funcionar 
@@ -47,8 +80,15 @@ botao.addEventListener("click",function(){
 
  contar ++ 
 
+console.log(contar)
 
 
+  
+
+// espaço para treinar :O
+
+
+ //Aleatoriedades
 
         // condição para aleatoriedade do Botão TOP e LEFT
 let num = ["10%","16.5%","20%","25%","30%","35%","40%","45%","50%","55%","60%","65%","70%","75","80%","85%","90%","95%"]
@@ -65,10 +105,8 @@ let font_cor_random = fnt_cor[Math.floor(Math.random() * fnt_cor.length)]
              
 let corpo = document.body
 
-if(contar >= 16){ 
-
-for(let i = 0; i <1;i++){
-
+if(contar >= 17){ 
+    Som.play()
     let Top_ = num[Math.floor(Math.random() * num.length)]
     let Left_ = num[Math.floor(Math.random() * num.length)]
     
@@ -103,22 +141,21 @@ for(let i = 0; i <1;i++){
         }else if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"]){
             botao.style.color = "black"
             
-    }
+    
 
 }
 
 }
-
-        // SISTEMA DE SOM COM TIRO 
 
 if(contar >= 28){
-
+    Som.play()
 botao.style.border = "1px solid black"
 botao.style.background = "lightblue"
 
 }
 
-if(contar >= 34){
+if(contar >= 35){
+    
     botao.style.top = "50%"
     botao.style.left = "50%"
     botao.innerText = "Botão"
@@ -126,6 +163,7 @@ if(contar >= 34){
     botao.style.color = "black"
     document.body.style.background = "white"
     music.remove()
+    Som.play()
 }
 
 if(contar >= 36){
@@ -135,8 +173,10 @@ let Left_ = num[Math.floor(Math.random()* num.length)]
 
 botao.style.top = Top_
 botao.style.left = Left_
-
+Som.play()
 }
+
+
 
 
 switch (contar){
@@ -144,94 +184,139 @@ switch (contar){
     case 1:
     
     div.innerHTML = `<h1>EII!!</h1>`
+    Som.play()
     
     break;
     
     case 2:
     
-    div.innerHTML = `<h1>Por que esta clicando neste botão?</h1>` 
-    
+        div.innerHTML = `<h1>Por que esta clicando neste botão?</h1>` 
+        Som.play()
     break; 
     
     case 3:
     
-    div.innerHTML = `<h1>tu é estranho ou o que?</h1>`
-    
+        div.innerHTML = `<h1>tu é estranho ou o que?</h1>`
+        Som.play()
     break;
     
     case 4:
     
         div.innerHTML = ""
-    
+        Som.play()
     break;
     
     case 5:
     
         botao.style.left = "70%"
         div.innerHTML = `<h1>Quero ver vc clicar agora >:)</h1>`
-    
+        Som.play()
     break;
     
     case 6: 
     
         botao.style.left = "50%"
         div.innerHTML = `<h1>Droga >:(</h1>`
+        Som.play()
     break;
     
-    case 7:
+    case 7: 
+
     
         let numeros = ['5%','20%','75%','90%','10%','40%','30%','80%','9%','15%','63%','77%','2%','28%','66%','33%']    
-    
+        
         // ChatGPT >:(      Sistema de Aleatoriedade
         let Top =  numeros[Math.floor(Math.random() * numeros.length)]; 
         let left = numeros[Math.floor(Math.random() * numeros.length)];
-    
+
         botao.style.top = Top
         botao.style.left = left
-    
+
         // TEXTO
         div.innerHTML = `<h1>Quero ver Clicar Novamente no Botão</h1> <img src="img/meem.jpg" alt="Rindo de vc kkkk">`
         document.body.style.background = "rgba(211, 211, 211, 0.358)"
         botao.classList.add("Estilo_btn")
-    
+        Som.play()
+
     break;
     
-    case 8:
+    case 8:     // Sitema de repetição do botão
     
-        botao.style.top = "50%"
-        botao.style.left = "50%"
-    
+        div.innerHTML = ""
+        alert("certo, certo.\n quero ver clicar Denovo!")
+        corpo.style.background = "white"
         botao.classList.remove("Estilo_btn")
-        div.innerHTML = `<h1>...</h1>`
-        document.body.style.background = "white"
+        Som.play()
+
+        for(let c = 0; c <= 50; c++){
+            
+            let btn_criado = document.createElement("button") // cria uma copia
+        
+            btn_criado.setAttribute("onclick", "click_clones()")
+
+            btn_criado.classList.add("btn_clones")
+
+            btn_criado.innerText = "Botão"
+
+            btn_criado.addEventListener("click", () => {Som.play()})    // todos os botões terem o som de click :)
+
+        
+                                    // ChatGPT >:( 
+            let top_clones_btn = Math.random() * 90 + "vh"  //viewport Height
+            let left_clones_btn = Math.random() * 90 + "vw" //viewport width
+        
+            botao.style.top = top_clones_btn
+            botao.style.left = left_clones_btn
+        
+            btn_criado.style.top = top_clones_btn
+            btn_criado.style.left = left_clones_btn
+            
+            corpo.appendChild(btn_criado)
+     
+    }
     
     break;
     
     case 9:
-    
-        div.innerHTML = `<h1>Olha ${nome_valor}, eu sei que você gosta de clicar nesse botão, <br> Mas, ta irritando é serio... </h1>`
-    
+        RemoveAll_buttons()
+        botao.style.background = "lightgray"
+        botao.style.top = "50%"
+        botao.style.left = "50%"
+
+        botao.classList.remove("Estilo_btn")
+        div.innerHTML = `<h1>Certo ${nome_valor}</h1>`
+        document.body.style.background = "white"
+        Som.play()
     break;
     
     case 10:
-        div.innerHTML = `<h1>É serio >:( <br> você n quer continuar clicando nele >:(</h1>`
+        div.innerHTML = `<h1> eu sei que você gosta de clicar nesse botão, <br> Mas, ta irritando é serio... </h1>`
+        Som.play()
     break;
     
     case 11:
-        div.innerHTML = `<h1 class="carinha"> >:( </h1>`
-        botao.style.top = "60%"
+        div.innerHTML = `<h1>É serio >:( <br> você n quer continuar clicando nele >:(</h1>`
+        Som.play()
     break;
     
     case 12:
-        botao.style.top = "50%"
-        div.innerHTML = `<h1>Então...</h1>`
+        div.innerHTML = `<h1 class="carinha"> >:( </h1>`
+        botao.style.top = "60%"
+        Som.play()
     break;
     
     case 13:
-        div.innerHTML = `<h1>que os jogos comecem >:)</h1>`
+        botao.style.top = "50%"
+        div.innerHTML = `<h1>Então...</h1>`
+        Som.play()
     break;
     
     case 14:
+        div.innerHTML = `<h1>que os jogos comecem >:)</h1>`
+        Som.play()
+    break;
+    
+    case 15:
         div.innerHTML = ""
         alert("ative a musica para uma melhor experiencia")
         alert("ou coloque uma musica que você goste, não sei ¯\_(ツ)_/¯ ")
@@ -247,59 +332,58 @@ switch (contar){
     music.getAttribute("hidden")
     
     }
-    
-    break;
-    
-    case 15:
-        div.innerHTML = "<h1>VAMOS VER SE VC É O BONZÂO ENTÃO >:)</h1>"
     break;
     
     case 16:
-        // executa o if de 16
+        div.innerHTML = "<h1>VAMOS VER SE VC É O BONZÂO ENTÃO >:)</h1>"
+        Som.play()
     break;
     
-    case 17: break; //na
+    case 17:
+            // executa o if de 17    
+    break; 
     case 18: break; //na
     case 19: break; //na
     
-    case 20:
-        botao.innerText = "Para" 
-    break; 
+    case 20: break; //na 
     case 21: 
-        botao.innerText = "De"
+    botao.innerText = "Para" 
+    Som.play()
     break; 
     case 22:
-        botao.innerText = "Clicar"
+        botao.innerText = "De"
+        Som.play()
     break; 
     
     case 23:
-        botao.style.fontSize = "10em"
-        botao.style.left = "50%"
-        botao.style.top = "50%"
-        botao.innerText = "NELE!"
+        botao.innerText = "Clicar"
+        Som.play()
     break;
     
     case 24: 
-        botao.style.fontSize = "1em"
-        botao.innerText = "Botão"
+    botao.style.fontSize = "10em"
+    botao.style.left = "50%"
+    botao.style.top = "50%"
+    botao.innerText = "NELE!"
+    Som.play()
     break;
     
-    case 25: break; //na
-    
-    case 26:
-        alert(">:(((")        
+    case 25:
+        botao.style.fontSize = "1em"
+        botao.innerText = "Botão"  
+        Som.play()  
     break; 
     
-    case 27: break; //na
+    case 26: break; //na 
     
-    case 28: 
+    case 27: break; 
+    alert(">:(((") 
+
+    case 28: break; //na
+    
+    case 29:            // sistema de Som de Tiro
         botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
-    
-    break;  
-    
-    case 29:
-        botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
-    
+
     break; 
     
     case 30:
@@ -308,171 +392,135 @@ switch (contar){
     break; 
     
     case 31:
-         div.innerHTML = "<h1>Por que o botão esta fazendo esse som?</h1>"
-    
-    if(cor_random_fundo == ["black"]){
-            
-        div.style.color = "white"
-    
-    }else  if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"] || cor_random_fundo == ["cyan"]){
-        div.style.color = "black"
-    
-    }
-        botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
+
+    botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
     
     break;
     
     case 32:
-        div.innerHTML = "<h1>Espera um momento...</h1>"
+        div.innerHTML = "<h1>Por que o botão esta fazendo esse som?</h1>"
     
         if(cor_random_fundo == ["black"]){
-            
+                
             div.style.color = "white"
-    
+        
         }else  if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"] || cor_random_fundo == ["cyan"]){
             div.style.color = "black"
-    
+        
         }
-        botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
-    
+            botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
     break;
     
     case 33: 
+    div.innerHTML = "<h1>Espera um momento...</h1>"
+    
     if(cor_random_fundo == ["black"]){
+        
+        div.style.color = "white"
+
+    }else  if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"] || cor_random_fundo == ["cyan"]){
+        div.style.color = "black"
+
+    }
+    botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
+
+    
+    break;
+    
+    case 34: 
+      if(cor_random_fundo == ["black"]){
             
         div.style.color = "white"
     
-    }else  if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"] || cor_random_fundo == ["cyan"]){
+        }else  if (cor_random_fundo == ["gray"] || cor_random_fundo == ["lightgray"] || cor_random_fundo == ["yellow"] || cor_random_fundo == ["cyan"]){
         div.style.color = "black"
     
     }
         botao.innerHTML = '<audio src="Sons/tiro7.wav" autoplay>Seu navegador não suporta audio</audio>'
-    
-    break;
-    
-    case 34:
-    
-        //executao if de 34
+        
     break;
     
     case 35:
-        alert("bem... é isso.")
-        alert("você ganhou...")
-        alert("não tenho o que dizer mais...")
-        alert("você é muito persistente. E eu não quero me estressar")
-        alert("então...")
-        alert("acabo :)")
-        alert("feito por lucas Cerqueito do Nascimento :D")
-        alert("fim :)")
-    break;
-    
-    case 36:
-        //FIM :)
-    break;
-    
-    case 37: break;
-    case 38: break;
-    case 39: break;
-    case 40:
-    alert("tu já pode sair já '-'")
+    //executao if de 35
     break;
 
-    case 41: break; //na
-    
-    case 42: 
-    window.open("https://youtu.be/ETo5l_RFgPY?si=EAZUdZTJ_aOAnWRZ", "_blank");
+    case 36:
+        alert("ainda não sei o porque o botão fez esse som. ")
+        alert("mas em fim...")
+        alert("vamos fazer um trato?")
+        alert("vamos jogar um jogo?")
+       let conf2 = confirm("Você aceita jogar meu jogo?")
+
+    if(conf2){
+        alert("serio? blz então >:)")
+        alert("caso você ganhei no meu jogo")
+        alert("você ganha")
+        alert("se não...")
+        alert("você perder ¯\_(ツ)_/¯ ")
+        alert("oq você acha?")
+
+    }else{
+        location.href = 'https://youtu.be/ETo5l_RFgPY?si=EAZUdZTJ_aOAnWRZ'
+    }
+
+        div.innerHTML = `<h1>O que você acha?</h1>`
+        botao.setAttribute("hidden", true)
+
+       corpo.innerHTML += ` <button class="botao_escolha_sim" onclick="btn_sim()">Vamos lá</button>`   
+       corpo.innerHTML += `<button class="botao_escolha_nao" onclick="btn_nao()">Não quero não </button>`
+
+
     break;
     }
 
 
-
-/* 
-
-if(contar == 1){
-
-div.innerHTML = `<h1>EII!!</h1>` 
-
-}else if (contar == 2){
-
-    div.innerHTML = `<h1>você pode parar de clicar neste botão?</h1>` 
-}else {
-
-    div.innerHTML = `<h1>isso esta irritando já</h1>`
-
-}
-if(contar > 3 ){
-
-div.innerHTML = ""
-
-}
-
-
-
-if(contar == 5){
-    botao.style.left = "70%"
-    div.innerHTML = `<h1>Quero ver vc clicar agora >:)</h1>`
-}
-
-if(contar == 6){
-    botao.style.left = "50%"
-    div.innerHTML = `<h1>Droga >:(</h1>`
-}
-
-if(contar == 7){    // Sistema de Aleatoriedade de Top e Left
-
-let numeros = ['5%','20%','75%','90%','10%','40%','30%','80%','9%','15%','63%','77%','2%','28%','66%','33%']    
-
-    // ChatGPT >:(      Sistema de Aleatoriedade
-let Top =  numeros[Math.floor(Math.random() * numeros.length)]; 
-let left = numeros[Math.floor(Math.random() * numeros.length)];
-
-botao.style.top = Top
-botao.style.left = left
-
-
-// TEXTO
-div.innerHTML = `<h1>Quero ver Clicar Novamente no Botão</h1> <img src="meem.jpg" alt="Rindo de vc kkkk">`
-document.body.style.background = "rgba(211, 211, 211, 0.358)"
-botao.classList.add("Estilo_btn")
-
-}else if (contar >= 8){
-
-botao.style.top = "50%"
-botao.style.left = "50%"
-
-botao.classList.remove("Estilo_btn")
-div.innerHTML = `<h1>...</h1>`
-document.body.style.background = "white"
-
-}
-
-if(contar == 10){
-
-div.innerHTML = `<h1>Olha ${nome_valor}, eu sei que você gosta de clicar nesse botão <br> Mas, ta irritando mesmo </h1>`
-
-}else if(contar == 11){
-    div.innerHTML = `<h1>É serio >:( <br> você n quer continuar clicando nele >:(</h1>`
-
-}
-
-if(contar == 12){
- 
-div.innerHTML = `<h1 class="carinha"> >:( </h1>`
-
-botao.style.top = "60%"
-    
-}
-
-
-
-*/
 })
 
+function btn_sim(){
+    alert("Certo... Vamos lá")
 
+    document.location.href = 'jogo.html'
+}
 
+function btn_nao(){
+    location.href = 'https://youtu.be/ETo5l_RFgPY?si=EAZUdZTJ_aOAnWRZ'
+}
 
+function click_clones(){
+clicks ++
 
+if(clicks == 10){
+    
+    alert("Meu Deus, isso é pior doque você clicar nesse botão")
+    alert("o botão ta aqui")
+    alert("aff")
+    botao.style.background = "yellow"
 
+ }else if(clicks == 15){
+
+alert("Tu é esquisito?  '-' ")
+RemoveAll_buttons()
+
+}
+console.log(clicks)
+}
+
+// remove todos os botões, Chatgpt pq eu sou muito burro de não lembrar do querySelectorALL >:( sabendo q to criando botões pra varias classes MDSSSSS
+
+function RemoveAll_buttons(){
+
+    let Remove_btn = document.querySelectorAll(".btn_clones")
+
+    Remove_btn.forEach(botoes => botoes.remove()); // removendo essa merda >:(
+
+    if(contar == 9){
+        alert("eita.. tu achou...")
+        alert("mandou bem...")
+        Remove_btn.forEach(botoes => botoes.remove());
+
+    }
+
+}
 
 
 
